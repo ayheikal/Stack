@@ -66,19 +66,21 @@ public class Stack {
 		if(isEmpty(stack)) {
 			return false;
 		}
+		
 		stack.head=stack.head.next;
 		return true;
 	}
 	/************************************************************************/
-	public static int top(Stack stack) {
+	public static void top(Stack stack) {
 		if(isEmpty(stack)) {
 			System.out.println("its empty");
 		}
+		else {
 		int aux=stack.head.data;
 		stack.head=stack.head.next;
-		return aux;
+		System.out.println( aux);
 		
-		
+		}
 		
 	}
 	/*************************************************************************/
@@ -98,7 +100,7 @@ public class Stack {
 	/************************************************************************/
 	public static int search(Stack stack,int key) {
 		Node use=stack.head;
-		while(use.next!=null) {
+		while(use!=null) {
 			if(use.data==key) {
 				return 1;
 				
@@ -130,7 +132,7 @@ public class Stack {
 		//print stack elements
 		stack.print(stack);
 		//top
-		System.out.println("top: "+stack.top(stack));
+		stack.top(stack);
 		stack.print(stack);
 		//peek
 		System.out.println("peek: "+stack.peek(stack));
